@@ -1,0 +1,13 @@
+App\Entity\User:
+  user1:
+    email: "user@gmail.com"
+    password: "password"
+    roles: ["ROLE_ADMIN"]
+
+
+
+App\Entity\Post:
+  post{1..10}:
+    title: "Test Post<current()>"
+    content: "Lets see"
+    auteur: '@user1'

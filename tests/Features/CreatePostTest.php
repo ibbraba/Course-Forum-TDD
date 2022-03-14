@@ -55,8 +55,6 @@ class CreatePostTest extends WebTestCase
         $user = $this->userRepository->find(1);
 
 
-
-
         $post->setAuteur($user)
             ->setContent("User 1 ")
             ->setTitle("Test");

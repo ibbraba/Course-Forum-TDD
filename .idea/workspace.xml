@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/test/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/DatabaseDependenciesTestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/DatabasePrimer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entities/PostTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entities/UserTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Controller/AppControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Controller/PostFixtures.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Controller/UserFixtures.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,12 +139,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Controller" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ForumTDD\tests\Controller" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\ForumTDD\tests\Features" />
     </key>
@@ -172,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647273944624</updated>
-      <workItem from="1647273946076" duration="6296000" />
+      <workItem from="1647273946076" duration="9566000" />
     </task>
     <servers />
   </component>
