@@ -3,6 +3,25 @@ App\Entity\User:
     email: "user@gmail.com"
     password: "password"
     roles: ["ROLE_ADMIN"]
+  user2:
+    email: "user2@gmail.com"
+    password: "password"
+    roles: [ "ROLE_ADMIN" ]
+
+
+
+App\Entity\Post:
+  post{1..5}:
+    title: "post<current()>"
+    content: "contenu de test <current()>"
+    auteur: '@user1'
+
+  post{6..11}:
+    title: "post<current()>"
+    content: "contenu de test <current()>"
+    auteur: '@user2'
+
+
 
  # user2:
   #  email: "user2@gmail.com"

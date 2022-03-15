@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/app/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Form/ArticleFormTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Form/FormUserFixtures.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ForumTDD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForumTDD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/app/userposts.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Features/FindUserPostsTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Controller/AppControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/AppControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Form/ArticleFormTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Form/ArticleFormTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +180,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647273944624</updated>
-      <workItem from="1647273946076" duration="19446000" />
+      <workItem from="1647273946076" duration="22890000" />
     </task>
     <servers />
   </component>

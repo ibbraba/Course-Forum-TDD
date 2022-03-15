@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use App\Repository\PostRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +23,7 @@ class AppController extends AbstractController
     {
         $post= new Post();
 
-        $form = $this->createForm(PostType::class, $post);
+        $form = $this->createForm(PostTy.pe::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
@@ -36,10 +37,23 @@ class AppController extends AbstractController
             'form' => $form->createView()
         ]);
 
+    }
 
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/AppController.php',
+
+    /**
+     * @Route ("posts/user/{id}", name="user-posts")
+     * @param $id
+     */
+    public function userPosts($id, PostRepository $postRepository){
+
+        $posts = $postRepository->findBy([
+            "auteur" => $id
+        ]);
+
+
+        return $this->render("app/userposts.html.twig", [
+            'posts' => $posts
         ]);
     }
+
 }

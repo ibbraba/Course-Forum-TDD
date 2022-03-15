@@ -35,11 +35,7 @@ class ArticleFormTest extends WebTestCase
         $this->postRepository = static::getContainer()->get(PostRepository::class);
 
         $this->user = $this->userRepository->findAll();;
-
-
-
-/*        $this->client->loginUser($this->user);*/
-
+        /*        $this->client->loginUser($this->user);*/
 
     }
 
@@ -55,8 +51,6 @@ class ArticleFormTest extends WebTestCase
 
         $this->assertResponseStatusCodeSame(200);
 
-
-
         //Select and fill the form
         $form = $crawler->selectButton("Save")->form([
             "post[title]" => "OKTEST",
@@ -69,15 +63,10 @@ class ArticleFormTest extends WebTestCase
 
         $this->client->submit($form);
 
-
-
         // Find One By name
         $post = $this->postRepository->findOneBy([
             "title" => "OKTEST"
         ]);
-
-
-
 
 
         //Assert Post Exist
