@@ -71,6 +71,7 @@ class AppControllerTest extends WebTestCase
         $this->client->request("GET", "/app");
 
         $this->assertResponseStatusCodeSame(200);
+        $this->assertSelectorTextContains("span", "Hello World");
 /*        $this->assertCount(10, $countPost);*/
 
     }
