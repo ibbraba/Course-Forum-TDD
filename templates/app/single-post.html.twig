@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+{#
+    {% for messages in app.flashes("success") %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}#}
+
+    <div class="container-fluid">
+        <div> <h1>Post</h1>
+
+            <span>By {{ post.auteur }}</span>
+
+            <h3> {{ post.title}} </h3>
+            <p>{{ post.content }}</p>
+
+        </div>
+    </div>
+
+    <div>
+        <h2>Replies</h2>
+
+        {% for reply in replies %}
+            <div class="comment" id="comment">
+                   <p>{{ reply.content}}</p>
+
+                <span>Par {{ reply.author }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+    <div class="form">
+        {{ form(form) }}
+    </div>
+
+
+
+{% endblock %}

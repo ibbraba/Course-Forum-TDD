@@ -18,18 +18,25 @@ class UserTest extends DatabaseDependenciesTestCase
     public function test_new_user_is_created_in_db(){
 
         $user = new User();
-        $user->setEmail("User1@gmail.com");
+        $user->setEmail("Username1@gmail.com");
         $user->setPassword("password");
+
+        $userRepo = $this->entityManager->getRepository(User::class);
+
+
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        $userRepo = $this->entityManager->getRepository(User::class);
+        $users = $userRepo->findAll();
+
         $testUser = $userRepo->findOneBy([
-            "id"=>2
+            "email"=> "Username1@gmail.com"
         ]);
 
-        $this->assertSame("User1@gmail.com", $testUser->getEmail());
+
+        // Check email is in DB
+        $this->assertSame("Username1@gmail.com", $testUser->getEmail());
 
 
     }

@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Post;
+use App\Form\CommentFormType;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +26,7 @@ class AppController extends AbstractController
     {
         $post= new Post();
 
-        $form = $this->createForm(PostTy.pe::class, $post);
+        $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
@@ -55,5 +58,49 @@ class AppController extends AbstractController
             'posts' => $posts
         ]);
     }
+
+
+    /**
+     * @Route ("post/{id}", name="single-post")
+     * @param $id
+     */
+    public function singlePost($id, PostRepository $postRepository, Request $request, UserRepository $userRepository, ManagerRegistry $managerRegistry): Response{
+
+        $post = $postRepository->find($id);
+
+        $replies = $post->getComments();
+        $user = $userRepository->find(1);
+
+
+        $comment = new Comment();
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $comment->setAuthor($user);
+            $comment->setPost($post);
+           $entityManager = $managerRegistry->getManager();
+           $entityManager->persist($comment);
+           $entityManager->flush();
+            //FLASH
+            $this->addFlash("success", "Commentaire ajouté !");
+
+            return $this->redirectToRoute("single-post", [
+               "id" => $id
+           ], Response::HTTP_SEE_OTHER);
+
+
+
+        }
+
+
+        return $this->render("app/single-post.html.twig", [
+            'post' => $post,
+            'form' => $form->createView(),
+            'replies' => $replies
+        ]);
+
+    }
+
+
 
 }

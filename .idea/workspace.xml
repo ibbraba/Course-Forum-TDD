@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/app/userposts.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Features/FindUserPostsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/app/single-post.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entities/UserFixtures.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/AppControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/AppControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Form/ArticleFormTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Form/ArticleFormTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/CommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/CommentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/PostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/PostTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/CommentPostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,17 +153,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ecoproject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Entities" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ForumTDD\tests\Entities" />
       <recent name="C:\wamp64\www\ForumTDD\tests\Form" />
       <recent name="C:\wamp64\www\ForumTDD\tests\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ForumTDD\tests\Entities" />
       <recent name="C:\wamp64\www\ForumTDD\tests\Features" />
     </key>
   </component>
@@ -180,7 +183,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647273944624</updated>
-      <workItem from="1647273946076" duration="22890000" />
+      <workItem from="1647273946076" duration="32694000" />
     </task>
     <servers />
   </component>
@@ -192,7 +195,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

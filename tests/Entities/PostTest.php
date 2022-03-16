@@ -7,6 +7,7 @@ namespace App\Tests\Entities;
 use App\Entity\Post;
 use App\Repository\PostRepository;
 use App\Tests\DatabaseDependenciesTestCase;
+use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -58,7 +59,11 @@ class PostTest extends DatabaseDependenciesTestCase
     }
 
 
-
+    protected function tearDown(): void
+    {
+        $purger = new ORMPurger($this->entityManager);
+        $purger->purge();
+    }
 
 
 }
