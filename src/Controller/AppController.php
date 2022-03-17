@@ -13,6 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class AppController extends AbstractController
 {
@@ -64,6 +66,7 @@ class AppController extends AbstractController
     /**
      * @Route ("post/{id}", name="single-post")
      * @param $id
+     *
      */
     public function singlePost($id, PostRepository $postRepository, Request $request, UserRepository $userRepository, ManagerRegistry $managerRegistry): Response{
 
@@ -104,15 +107,13 @@ class AppController extends AbstractController
 
     /**
      * @Route ("create-post", name="new-post")
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function createPost(Request $request, ManagerRegistry $managerRegistry, UserRepository $userRepository): Response{
         $post = new Post();
 
-        if ($this->getUser()) {
-            $user = $this->getUser();
-        }else{
-            $user= $userRepository->find(1);
-        }
+        $user = $this->getUser();
+
 
         $form = $this->createForm(PostType::class, $post);
 
@@ -120,6 +121,8 @@ class AppController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $post->setAuteur($user);
+
             $entityManager = $managerRegistry->getManager();
             $entityManager->persist($post);
             $entityManager->flush();

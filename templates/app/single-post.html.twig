@@ -35,10 +35,14 @@
 
 
 
-
-    <div class="form">
-        {{ form(form) }}
-    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="form">
+            <h2>Repondre au post</h2>
+            {{ form(form) }}
+        </div>
+    {% else %}
+        <p>Vous devez être connecté pour pouvoir répondre</p>
+    {% endif %}
 
 
 
