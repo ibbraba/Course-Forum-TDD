@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/app/single-post.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entities/UserFixtures.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/app/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entities/CommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/CommentTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entities/PostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/PostTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entities/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/UserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Features/CommentPostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +160,7 @@
       <recent name="C:\wamp64\www\ForumTDD\tests\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ForumTDD\templates\app" />
       <recent name="C:\wamp64\www\ForumTDD\tests\Entities" />
       <recent name="C:\wamp64\www\ForumTDD\tests\Features" />
     </key>
@@ -183,7 +179,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647273944624</updated>
-      <workItem from="1647273946076" duration="32694000" />
+      <workItem from="1647273946076" duration="35760000" />
     </task>
     <servers />
   </component>

@@ -21,6 +21,7 @@ class AppController extends AbstractController
      * @param Request $request
      * @param ManagerRegistry $managerRegistry
      * @return Response
+     * TODO Get Post and User connected
      */
     public function index(Request $request, ManagerRegistry $managerRegistry): Response
     {
@@ -97,6 +98,41 @@ class AppController extends AbstractController
             'post' => $post,
             'form' => $form->createView(),
             'replies' => $replies
+        ]);
+
+    }
+
+    /**
+     * @Route ("create-post", name="new-post")
+     */
+    public function createPost(Request $request, ManagerRegistry $managerRegistry, UserRepository $userRepository): Response{
+        $post = new Post();
+
+        if ($this->getUser()) {
+            $user = $this->getUser();
+        }else{
+            $user= $userRepository->find(1);
+        }
+
+        $form = $this->createForm(PostType::class, $post);
+
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $entityManager = $managerRegistry->getManager();
+            $entityManager->persist($post);
+            $entityManager->flush();
+
+            $this->addFlash("success", "Post Envoyé!");
+            return $this->redirectToRoute("single-post", [
+                "id" => $post->getId()
+            ]);
+
+        }
+
+        return $this->render("app/new.html.twig", [
+            'form' => $form->createView()
         ]);
 
     }

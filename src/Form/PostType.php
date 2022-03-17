@@ -18,11 +18,11 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('auteur', EntityType::class, [
+       /*     ->add('auteur', EntityType::class, [
                 "class" => User::class,
                 "choice_label" => "email",
                 'expanded' => true,
-            ])
+            ])*/
             ->add("save", SubmitType::class);
 
 

@@ -20,12 +20,16 @@ class CreatePostTest extends WebTestCase
     protected $doctrine;
 
     protected $userRepository;
+    /**
+     * @var \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     */
+    private $client;
 
 
     protected function setUp(): void
     {
 
-
+        $this->client = static::createClient();
 
         $this->databaseTool = static::getContainer()->get(DatabaseToolCollection::class)->get();
         self::bootKernel();
@@ -49,7 +53,33 @@ class CreatePostTest extends WebTestCase
      * @test
      * @group integration
      */
-    public function test_if_post_is_created_by_a_user(){
+    public function test_if_post_is_created_by_a_user_and_display(){
+
+        //GET USER
+        $user = $this->userRepository->find(1);
+
+        //Get New post Page
+        $crawler = $this->client->request("GET", "create-post");
+
+        $this->assertResponseStatusCodeSame(200);
+
+
+        $form = $crawler->selectButton("Save")->form([
+           "post[title]" => "Test post",
+           "post[content]" => "Very happy",
+        ]);
+        $this->assertNotNull($form);
+        //Send the Post
+        $this->client->submit($form);
+
+
+        //Redirect and check if post is there
+        $this->client->followRedirects();
+/*        $newPost=  $crawler->filter(".post");*/
+
+        $this->assertSelectorExists("h3", "Test post");
+
+/*
         $post = new Post();
 
         $user = $this->userRepository->find(1);
@@ -60,7 +90,7 @@ class CreatePostTest extends WebTestCase
             ->setTitle("Test");
 
 
-        $this->assertInstanceOf(Post::class, $post);
+        $this->assertInstanceOf(Post::class, $post);*/
     }
 
 
