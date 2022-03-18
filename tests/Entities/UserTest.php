@@ -7,10 +7,8 @@ namespace App\Tests\Entities;
 use App\Tests\DatabaseDependenciesTestCase;
 use App\Entity\User;
 
-class UserTest extends DatabaseDependenciesTestCase
+class UserTest extends UnitTestSetUp
 {
-
-
     /**
      * @test
      * @group unitTest
@@ -21,26 +19,15 @@ class UserTest extends DatabaseDependenciesTestCase
         $user->setEmail("Username1@gmail.com");
         $user->setPassword("password");
 
-        $userRepo = $this->entityManager->getRepository(User::class);
+        $this->doctrine->persist($user);
+        $this->doctrine->flush();
 
-
-
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
-
-        $users = $userRepo->findAll();
-
-        $testUser = $userRepo->findOneBy([
+        $testUser = $this->userRepository->findOneBy([
             "email"=> "Username1@gmail.com"
         ]);
 
-
-        // Check email is in DB
+        // Check User is in DB
         $this->assertSame("Username1@gmail.com", $testUser->getEmail());
-
-
     }
-
-
 
 }

@@ -7,12 +7,13 @@ namespace App\Tests\Features;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Entity\User;
+use App\Tests\Entities\UnitTestSetUp;
 use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CommentTest extends WebTestCase
+class CommentTest extends UnitTestSetUp
 {
-    protected $databaseTool;
+/*    protected $databaseTool;
 
     protected $doctrine;
 
@@ -20,11 +21,11 @@ class CommentTest extends WebTestCase
 
     protected $postRepository;
     protected $client;
-    private $commentRepository;
+    private $commentRepository;*/
 
-    protected function setUp(): void
-    {
-
+/*    protected function setUp(): void
+    {*/
+/*
         $this->databaseTool = static::getContainer()->get(DatabaseToolCollection::class)->get();
         self::bootKernel();
 
@@ -36,8 +37,8 @@ class CommentTest extends WebTestCase
 
         $this->postRepository = $this->doctrine->getRepository(Post::class);
         $this->userRepository = $this->doctrine->getRepository(User::class);
-        $this->commentRepository= $this->doctrine->getRepository(Comment::class);
-    }
+        $this->commentRepository= $this->doctrine->getRepository(Comment::class);*/
+
 
 
     /**
@@ -45,7 +46,6 @@ class CommentTest extends WebTestCase
      * @test
      */
     public function test_comment_is_added_and_flush_in_DB(){
-
         //Retrieve one Post
 
         $post = $this->postRepository->find(1);

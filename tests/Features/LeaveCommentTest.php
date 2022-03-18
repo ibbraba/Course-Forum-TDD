@@ -102,16 +102,13 @@ class LeaveCommentTest extends WebTestCase
 
         //GET PAGE
         $crawler = $this->client->request("GET", "post/1");
-
         $form = $crawler->selectButton("Send")->form([
             "comment_form[content]" => "Test Submit"
         ]);
 
         //SEND Comment
         $this->client->submit($form);
-
         $this->client->followRedirect();
-
         //Check if reply appear in Post page
         $comments =  $crawler->filter("#comment");
 

@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Entities/LikesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entities/UnitTestSetUp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/CommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/CommentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/LikesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/LikesTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/PostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/PostTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entities/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +185,7 @@
       <updated>1647273944624</updated>
       <workItem from="1647273946076" duration="40895000" />
       <workItem from="1647526303499" duration="2224000" />
-      <workItem from="1647605313983" duration="1605000" />
+      <workItem from="1647605313983" duration="2753000" />
     </task>
     <servers />
   </component>
