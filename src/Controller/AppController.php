@@ -23,7 +23,7 @@ class AppController extends AbstractController
      * @param Request $request
      * @param ManagerRegistry $managerRegistry
      * @return Response
-     * TODO Get Post and User connected
+
      */
     public function index(Request $request, ManagerRegistry $managerRegistry): Response
     {
@@ -139,6 +139,7 @@ class AppController extends AbstractController
         ]);
 
     }
+
 
 
 
