@@ -21,6 +21,14 @@
         </div>
     </div>
 
+
+    <div>
+        <h5> {{ likesCount }} likes </h5>
+        <button><a href="{{ path("likePost", {id: post.id} )}}">Like</a></button>
+    </div>
+
+
+
     <div>
         <h2>Replies</h2>
 

@@ -6,9 +6,11 @@ use App\Entity\Comment;
 use App\Entity\Post;
 use App\Form\CommentFormType;
 use App\Form\PostType;
+use App\Repository\LikeRepository;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,16 +25,15 @@ class AppController extends AbstractController
      * @param Request $request
      * @param ManagerRegistry $managerRegistry
      * @return Response
-
      */
     public function index(Request $request, ManagerRegistry $managerRegistry): Response
     {
-        $post= new Post();
+        $post = new Post();
 
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $managerRegistry->getManager();
             $entityManager->persist($post);
             $entityManager->flush();
@@ -50,7 +51,8 @@ class AppController extends AbstractController
      * @Route ("posts/user/{id}", name="user-posts")
      * @param $id
      */
-    public function userPosts($id, PostRepository $postRepository){
+    public function userPosts($id, PostRepository $postRepository)
+    {
 
         $posts = $postRepository->findBy([
             "auteur" => $id
@@ -68,30 +70,32 @@ class AppController extends AbstractController
      * @param $id
      *
      */
-    public function singlePost($id, PostRepository $postRepository, Request $request, UserRepository $userRepository, ManagerRegistry $managerRegistry): Response{
+    public function singlePost($id, PostRepository $postRepository, Request $request, UserRepository $userRepository, LikeRepository $likeRepository, ManagerRegistry $managerRegistry): Response
+    {
 
         $post = $postRepository->find($id);
 
         $replies = $post->getComments();
         $user = $userRepository->find(1);
 
+        $countLikes = $likeRepository->countLikesOnPost($id);
+
 
         $comment = new Comment();
         $form = $this->createForm(CommentFormType::class, $comment);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $comment->setAuthor($user);
             $comment->setPost($post);
-           $entityManager = $managerRegistry->getManager();
-           $entityManager->persist($comment);
-           $entityManager->flush();
+            $entityManager = $managerRegistry->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
             //FLASH
             $this->addFlash("success", "Commentaire ajouté !");
 
             return $this->redirectToRoute("single-post", [
-               "id" => $id
-           ], Response::HTTP_SEE_OTHER);
-
+                "id" => $id
+            ], Response::HTTP_SEE_OTHER);
 
 
         }
@@ -100,7 +104,8 @@ class AppController extends AbstractController
         return $this->render("app/single-post.html.twig", [
             'post' => $post,
             'form' => $form->createView(),
-            'replies' => $replies
+            'replies' => $replies,
+            'likesCount' => $countLikes
         ]);
 
     }
@@ -109,7 +114,8 @@ class AppController extends AbstractController
      * @Route ("create-post", name="new-post")
      * @IsGranted ("ROLE_ADMIN")
      */
-    public function createPost(Request $request, ManagerRegistry $managerRegistry, UserRepository $userRepository): Response{
+    public function createPost(Request $request, ManagerRegistry $managerRegistry, UserRepository $userRepository): Response
+    {
         $post = new Post();
 
         $user = $this->getUser();
@@ -120,7 +126,7 @@ class AppController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $post->setAuteur($user);
 
             $entityManager = $managerRegistry->getManager();
@@ -140,7 +146,38 @@ class AppController extends AbstractController
 
     }
 
+    /**
+     * @param Post $post
+     * @param ObjectManager $objectManager
+     * @param LikeRepository $likeRepository
+     * @return Response
+     * @Route ("post/{id}/like", name="likePost")
+     */
+    public function like($id, PostRepository $postRepository, ManagerRegistry $managerRegistry, LikeRepository $likeRepository): Response
+    {
+
+        $post = $postRepository->find($id);
+
+        $user = $this->getUser();
+
+        // EARLY RETURN UNAUTHORIZED
+        if (!$user) {
+            return $this->json(["code" => 403, "message" => "Unauthorized"], 403);
+        } else {
+
+            $isLiked = $likeRepository->checkLike($post, $user);
 
 
+            if ($isLiked) {
+                return $this->json(["code" => 200, "message" => "Post deliké !!"], 200);
+            } else {
+                return $this->json(["code" => 200, "message" => "Liké !!"], 200);
+            }
+
+        }
+        /*        return $this->json(["code" => 200 , "message" => "C'est OK"], 200);*/
+
+
+    }
 
 }

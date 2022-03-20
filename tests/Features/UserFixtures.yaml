@@ -7,6 +7,11 @@ App\Entity\User:
     email: "user2@gmail.com"
     password: "password"
     roles: [ "ROLE_ADMIN" ]
+  user3:
+    email: "user3@gmail.com"
+    password: "password"
+    roles: [ "ROLE_ADMIN" ]
+
 
 
 
@@ -21,6 +26,10 @@ App\Entity\Post:
     content: "contenu de test <current()>"
     auteur: '@user2'
 
+App\Entity\Like:
+  like{1..2}:
+    post: '@post1'
+    user: '@user<current()>'
 
 
  # user2:

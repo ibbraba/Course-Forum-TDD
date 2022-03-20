@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Entities/UnitTestSetUp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Features/Ajax/AjaxFeatureTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/LikeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LikeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/single-post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/single-post.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Entities/CommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/CommentTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entities/LikesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/LikesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entities/PostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/PostTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entities/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entities/UserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/UserFixtures.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,9 +169,9 @@
       <recent name="C:\wamp64\www\ForumTDD\tests\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ForumTDD\tests\Features" />
       <recent name="C:\wamp64\www\ForumTDD\templates\app" />
       <recent name="C:\wamp64\www\ForumTDD\tests\Entities" />
-      <recent name="C:\wamp64\www\ForumTDD\tests\Features" />
     </key>
   </component>
   <component name="RunManager">
@@ -185,7 +190,8 @@
       <updated>1647273944624</updated>
       <workItem from="1647273946076" duration="40895000" />
       <workItem from="1647526303499" duration="2224000" />
-      <workItem from="1647605313983" duration="2753000" />
+      <workItem from="1647605313983" duration="8371000" />
+      <workItem from="1647766978481" duration="10251000" />
     </task>
     <servers />
   </component>

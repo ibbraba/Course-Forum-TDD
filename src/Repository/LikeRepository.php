@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Like;
+use App\Entity\Post;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
@@ -47,13 +48,38 @@ class LikeRepository extends ServiceEntityRepository
     }
 
     /**
-     *
+     * Returns true if the post is already liked, false if not
      */
-    public function updateLikes(Like $like, User $user){
-        // Check if like is already liked by User
-       $userLikes = $user->getLikes();
+    public function checkLike(Post $post, User $user) :bool{
+        // Check if post is already liked by User
+        $em = $this->getEntityManager();
 
-        //Add or remove a like when this function is called
+        $query = $em->createQuery("
+            SELECT l
+            FROM App\Entity\Like l
+            WHERE l.post = :post
+            AND l.user = :user        
+        ")
+            ->setParameter('post', $post)
+            ->setParameter('user', $user);
+
+        $result = $query->getResult();
+
+        return $result ? true : false;
+    }
+
+    public function countLikesOnPost(int $id){
+
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery("
+            SELECT p
+            FROM App\Entity\Like p
+            WHERE p.post = :id        
+        ")
+        ->setParameter('id', $id);
+
+        return count($query->getResult());
 
 
     }

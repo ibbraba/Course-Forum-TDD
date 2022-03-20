@@ -168,4 +168,25 @@ class Post
 
         return $this;
     }
+
+
+    /**
+     * @param User $user
+     *
+     */
+    public function isLiked(User $user): String{
+
+        foreach ($this->likes as $like){
+
+
+            if ($like->getUser() === $user) return "OK";
+
+        }
+
+        return "false";
+
+
+    }
+
+
 }
