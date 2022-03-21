@@ -46,7 +46,23 @@ class LeaveALikeTest extends WebTestCase
 
     }
 
+    /**
+     * @test
+     * @group integration
+     */
+    public function test_non_logged_in_client_cannot_like_a_post(){
+        //GET SINGLE PAGE
+        $this->client->request("GET", "post/1");
 
+        $this->assertResponseStatusCodeSame(200);
+
+
+        //TEST Like Button not there
+        $this->assertSelectorNotExists("button", "Like");
+        $this->assertSelectorExists("p", "Connectez-vous et aimez ce post !");
+
+
+    }
 
     /**
      * @test

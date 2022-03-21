@@ -27,8 +27,10 @@
 
         {% if is_granted('ROLE_ADMIN') %}
             <button><a id="likebtn" class="likeLink" href="{{ path("likePost", {id: post.id} )}}">Like</a></button>
+            {% else %}
+            <p>Connectez-vous et aimez ce post !</p>
         {% endif %}
-    </div>
+    </div>0
 
 
 
