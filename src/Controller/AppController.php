@@ -167,6 +167,7 @@ class AppController extends AbstractController
             return $this->json(["code" => 403, "message" => "Unauthorized"], 403);
         } else {
 
+
             $isLiked = $likeRepository->checkLike($post, $user);
 
             if ($isLiked) {
@@ -178,7 +179,9 @@ class AppController extends AbstractController
                 ]);
                 $em->remove($like);
                 $em->flush();
-                return $this->json(["code" => 200, "message" => "Post deliké !!"], 200);
+
+                $likeCount = $likeRepository->countLikesOnPost($id);
+                return $this->json(["code" => 200, "message" => "Post deliké !!", "count" => $likeCount], 200);
 
 
             } else {
@@ -188,8 +191,8 @@ class AppController extends AbstractController
                         ->setUser($user);
                 $em->persist($newLike);
                 $em->flush();
-
-                return $this->json(["code" => 200, "message" => "Liké !!"], 200);
+                $likeCount = $likeRepository->countLikesOnPost($id);
+                return $this->json(["code" => 200, "message" => "Liké !!", "count" => $likeCount], 200);
             }
         }
         /*        return $this->json(["code" => 200 , "message" => "C'est OK"], 200);*/

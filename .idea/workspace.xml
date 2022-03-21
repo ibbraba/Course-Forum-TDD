@@ -4,6 +4,7 @@
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/single-post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/single-post.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,6 +137,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="26NpYDnJwtr8cV52xFa0bXvbeEI" />
@@ -181,7 +183,7 @@
       <workItem from="1647273946076" duration="40895000" />
       <workItem from="1647526303499" duration="2224000" />
       <workItem from="1647605313983" duration="8371000" />
-      <workItem from="1647766978481" duration="12348000" />
+      <workItem from="1647766978481" duration="16289000" />
     </task>
     <servers />
   </component>

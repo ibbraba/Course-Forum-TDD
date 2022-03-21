@@ -42,10 +42,7 @@ class LeaveALikeTest extends WebTestCase
 
         $this->postRepository = $this->doctrine->getRepository(Post::class);
         $this->likeRepository = $this->doctrine->getRepository(Like::class);
-        $this->userRepository= $this->doctrine->getRepository(User::class);
-
-        $this->user = $this->userRepository->find(1);
-        $this->client->loginUser($this->user);
+        $this->userRepository = $this->doctrine->getRepository(User::class);
 
     }
 
@@ -71,26 +68,20 @@ class LeaveALikeTest extends WebTestCase
     }
 
 
-    public function test_user_can_remove_a_like(){
-            // REQUEST SINGLE PAGE POST
-
-        // CLICKER SUR LIKE
-
-        // METTRE A JOUR LA VUE
-
-        //CHECK LIKE COUNT IN DB
-    }
-
-
     /**
      * @test
      * @group integration
      */
-    public function test_user_can_leave_a_like(){
+    public function test_user_can_leave_a_like_or_remove_it(){
+
+        // User 3 does not likes the post
+        $this->user = $this->userRepository->find(3);
+        $this->client->loginUser($this->user);
 
         // Find a Post
         $id = 1;
         $post = $this->postRepository->find($id);
+
 
         $likes  = $this->likeRepository->countLikesOnPost($post->getId());
 
@@ -99,33 +90,29 @@ class LeaveALikeTest extends WebTestCase
 
 
 
-        //Check Likes count
+        //Check Likes count initially
         $this->assertSame(2, $likes);
-
-
-
         $this->assertSelectorTextContains("h5", "2 likes");
-        // CLICKER SUR LIKE
+
+
+        // CLICK ON LIKE AND CHECK CHANGES
         $likeButton = $crawler->selectLink("Like")->link();
-        /*dd($likeButton);*/
-
-
         $this->client->click($likeButton);
-        $this->client->followRedirect();
+        $this->client->followRedirects();
 
-        // METTRE A JOUR LA VUE
         $newCount = $likes+1;
+        $likesCount =  $this->likeRepository->countLikesOnPost(1);
+        $this->assertSame($newCount, $likesCount);
 
-        //Check Ajax Update
 
-        $this->assertSelectorTextContains("h5", "$newCount likes");
-        //CHECK LIKE COUNT IN DB
-
-        $likesCount =  $post->getLikes();
-
-        $this->assertEquals($initLikesCount+1, $likesCount);
-
+        //CLICK AGAIN AND CHECK IF POST IS UNLIKED
+        $newCount --;
+        $this->client->click($likeButton);
+        $this->client->followRedirects();
+        $likesCount =  $this->likeRepository->countLikesOnPost(1);
+        $this->assertSame($newCount, $likesCount);
     }
+
 
 
 

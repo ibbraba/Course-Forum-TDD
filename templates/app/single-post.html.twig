@@ -23,8 +23,11 @@
 
 
     <div>
-        <h5> {{ likesCount }} likes </h5>
-        <button><a href="{{ path("likePost", {id: post.id} )}}">Like</a></button>
+        <h5 class="countLikes"> {{ likesCount }} likes </h5>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <button><a id="likebtn" class="likeLink" href="{{ path("likePost", {id: post.id} )}}">Like</a></button>
+        {% endif %}
     </div>
 
 
@@ -54,4 +57,49 @@
 
 
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function (){
+
+    const countDiv = document.querySelector(".countLikes")
+    const likeBtn = document.querySelectorAll('a.likeLink')
+    console.log(likeBtn)
+
+
+
+    {#// PREVENT DEFAULT#}
+    likeBtn.forEach(function (btn){
+        console.log(btn)
+        btn.addEventListener("click", function (event){
+            event.preventDefault()
+
+          // Request Like Unlike
+            const url = this.href
+            axios.get(url).then(function (response){
+                console.log(response.data)
+                var counter = response.data.count
+                console.log("count = " + response.data.count)
+                countDiv.innerHTML =  counter + " Likes"
+            })
+
+        })
+    })
+
+})
+    {#// SELECT DOM ELEMENTS#}
+
+
+
+
+
+
+
+    {#//MAKE REQUEST TO SERVER#}
+
+    {#//MANIPULATE DATA FROM RESPONSE TO UPDATE VIEW#}
+
+ </script>
 {% endblock %}
