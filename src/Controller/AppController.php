@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Like;
 use App\Entity\Post;
 use App\Form\CommentFormType;
 use App\Form\PostType;
@@ -155,6 +156,7 @@ class AppController extends AbstractController
      */
     public function like($id, PostRepository $postRepository, ManagerRegistry $managerRegistry, LikeRepository $likeRepository): Response
     {
+        $em = $managerRegistry->getManager();
 
         $post = $postRepository->find($id);
 
@@ -167,13 +169,28 @@ class AppController extends AbstractController
 
             $isLiked = $likeRepository->checkLike($post, $user);
 
-
             if ($isLiked) {
+                //TODO: Remove like
+                //FIND THE LIKE
+                $like = $likeRepository->findOneBy([
+                    "post" => $post,
+                    "user" => $user,
+                ]);
+                $em->remove($like);
+                $em->flush();
                 return $this->json(["code" => 200, "message" => "Post deliké !!"], 200);
+
+
             } else {
+                //TODO: Add like
+                $newLike = new Like();
+                $newLike->setPost($post)
+                        ->setUser($user);
+                $em->persist($newLike);
+                $em->flush();
+
                 return $this->json(["code" => 200, "message" => "Liké !!"], 200);
             }
-
         }
         /*        return $this->json(["code" => 200 , "message" => "C'est OK"], 200);*/
 

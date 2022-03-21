@@ -111,7 +111,7 @@ class LeaveALikeTest extends WebTestCase
 
 
         $this->client->click($likeButton);
-
+        $this->client->followRedirect();
 
         // METTRE A JOUR LA VUE
         $newCount = $likes+1;
