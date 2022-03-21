@@ -13,45 +13,9 @@ use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CreatePostTest extends WebTestCase
+class CreatePostTest extends FeaturesTestsSetup
 {
 
-    protected $databaseTool;
-
-    protected $doctrine;
-
-    protected $userRepository;
-    /**
-     * @var KernelBrowser
-     */
-    private $client;
-
-
-    protected function setUp(): void
-    {
-
-        self::ensureKernelShutdown();
-
-        $this->client = static::createClient();
-
-/*        self::bootKernel();*/
-
-        $this->databaseTool = static::getContainer()->get(DatabaseToolCollection::class)->get();
-
-        $this->doctrine = static::getContainer()->get('doctrine')->getManager();
-
-/*        $this->entityManager = $kernel->getContainer()->get('doctrine')->getManager();*/
-
-
-        $this->databaseTool->loadAliceFixture([__DIR__."\UserFixtures.yaml"]);
-
-        $this->userRepository= $this->doctrine->getRepository(User::class);
-
-
-        $user = $this->userRepository->find(1);
-        $this->client->loginUser($user);
-
-    }
 
     /**
      * @test
@@ -61,7 +25,7 @@ class CreatePostTest extends WebTestCase
 
         //GET USER
         $user = $this->userRepository->find(1);
-
+        $this->client->loginUser($user);
         //Get New post Page
         $crawler = $this->client->request("GET", "create-post");
 

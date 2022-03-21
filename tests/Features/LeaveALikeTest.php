@@ -11,40 +11,8 @@ use App\Entity\User;
 use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class LeaveALikeTest extends WebTestCase
+class LeaveALikeTest extends FeaturesTestsSetup
 {
-    /**
-     * @var \Symfony\Bundle\FrameworkBundle\KernelBrowser
-     */
-    private $client;
-    private $doctrine;
-    private $databaseTools;
-    protected $commentRepository;
-    private $postRepository;
-    protected $userRepository;
-    private $user;
-    private $likeRepository;
-
-
-    protected function setUp(): void
-    {
-        $this->client = static::createClient();
-
-        $this->doctrine = static::getContainer()->get('doctrine')->getManager();
-
-        $this->commentRepository = $this->doctrine->getRepository(Comment::class);
-
-
-        $this->databaseTools = static::getContainer()->get(DatabaseToolCollection::class)->get();
-
-
-        $this->databaseTools->loadAliceFixture([__DIR__."\UserFixtures.yaml"]);
-
-        $this->postRepository = $this->doctrine->getRepository(Post::class);
-        $this->likeRepository = $this->doctrine->getRepository(Like::class);
-        $this->userRepository = $this->doctrine->getRepository(User::class);
-
-    }
 
     /**
      * @test

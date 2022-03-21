@@ -10,34 +10,8 @@ use App\Entity\User;
 use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class LeaveCommentTest extends WebTestCase
+class LeaveCommentTest extends FeaturesTestsSetup
 {
-    /**
-     * @var \Symfony\Bundle\FrameworkBundle\KernelBrowser
-     */
-    private $client;
-    private $commentRepository;
-    private $databaseTools;
-    private $postRepository;
-    private $userRepository;
-    private $doctrine;
-
-    protected function setUp(): void
-    {
-        $this->client = static::createClient();
-
-        $this->doctrine = static::getContainer()->get('doctrine')->getManager();
-
-        $this->commentRepository = $this->doctrine->getRepository(Comment::class);
-
-        $this->databaseTools = static::getContainer()->get(DatabaseToolCollection::class)->get();
-
-        $this->databaseTools->loadAliceFixture([__DIR__."\UserFixtures.yaml"]);
-
-        $this->postRepository = $this->doctrine->getRepository(Post::class);
-
-        $this->userRepository= $this->doctrine->getRepository(User::class);
-    }
 
 
     /**
