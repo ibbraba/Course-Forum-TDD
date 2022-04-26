@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b007c937-77b2-45b9-bc01-dd37b64873ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Features/FeaturesTestsSetup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/CreatePostTest.php" afterDir="false" />
+    </list>
+    <list id="e336f78b-c23a-47ef-a581-96d59f07c7b6" name="Revert &quot;Refactoring integration tests&quot;" comment="Revert &quot;Refactoring integration tests&quot;&#10;&#10;This reverts commit 7ca4c1c9">
+      <change beforePath="$PROJECT_DIR$/tests/Features/FeaturesTestsSetup.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Features/FindUserPostsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/FindUserPostsTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveALikeTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Features/LeaveCommentTest.php" afterDir="false" />
@@ -19,6 +24,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -140,6 +150,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="ProjectId" id="26NpYDnJwtr8cV52xFa0bXvbeEI" />
@@ -148,6 +159,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -185,7 +197,12 @@
       <workItem from="1647273946076" duration="40895000" />
       <workItem from="1647526303499" duration="2224000" />
       <workItem from="1647605313983" duration="8371000" />
-      <workItem from="1647766978481" duration="17724000" />
+      <workItem from="1647766978481" duration="18398000" />
+      <workItem from="1649429703631" duration="41000" />
+      <workItem from="1650295563401" duration="385000" />
+      <workItem from="1650296718132" duration="646000" />
+      <workItem from="1650464836659" duration="646000" />
+      <workItem from="1650624330045" duration="11102000" />
     </task>
     <servers />
   </component>
@@ -215,5 +232,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revert &quot;Refactoring integration tests&quot;&#10;&#10;This reverts commit 7ca4c1c9" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;Refactoring integration tests&quot;&#10;&#10;This reverts commit 7ca4c1c9" />
   </component>
 </project>
